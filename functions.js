@@ -71,9 +71,12 @@ function generate () {
     var ramdom = generateRandom();
     results.innerHTML = results.innerHTML + '<h2>' + tpls[count - 1] + '</h2><h4>' + wishList[ramdom] + '</h4>';
 
+    var buttonDescobir = document.querySelector('#cal');
+
     if (tpls[count]) {
-        var buttonDescobir = document.querySelector('#cal');
         buttonDescobir.innerHTML = tpls[count];
+    } else {
+        buttonDescobir.innerHTML = 'Pronto!';
     }
 
     randoms.push(ramdom);
