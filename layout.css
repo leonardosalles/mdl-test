@@ -11,3 +11,11 @@
 .results {
     text-align: center;
 }
+
+header {
+    position: fixed;
+}
+
+.mdl-layout__content {
+    padding-top: 65px;
+}
