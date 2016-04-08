@@ -25,13 +25,15 @@
 
             arr = JSON.parse(items);
 
+            var tmpArr = arr.slice();
+
             for (var i=0,n=arr.length;i<n;i++) {
                 if (id === arr[i].id) {
-                    arr.splice(i, 1);
+                    tmpArr.splice(i, 1);
                 }
             }
 
-            localStorage.setItem('savedTexts', JSON.stringify(arr));
+            localStorage.setItem('savedTexts', JSON.stringify(tmpArr));
             historico.innerHTML = null;
             verHistorico();
         }
