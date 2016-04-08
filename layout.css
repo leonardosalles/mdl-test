@@ -10,6 +10,8 @@
 
 .results {
     text-align: center;
+    width: 512px;
+    margin: 0 auto;
 }
 
 header {
@@ -19,3 +21,24 @@ header {
 .mdl-layout__content {
     padding-top: 65px;
 }
+
+.demo-card-wide.mdl-card {
+    width: 512px;
+    margin: 20px 0;
+}
+.demo-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background-position: center;
+    background-size: cover;
+}
+.demo-card-wide > .mdl-card__menu {
+    color: #fff;
+}
+
+.demo-card-wide .mdl-card__supporting-text,
+.demo-card-wide .mdl-card__actions {
+    width: 100%;
+    background-color: #fff;
+}
+
