@@ -17,7 +17,7 @@ function salvar (text, bg) {
         formattedDate = (date.getDay() < 9 ? '0' + date.getDay() : date.getDay()) + '/' + (date.getMonth() < 9 ? '0' + date.getMonth() : date.getMonth()) + '/' + (date.getFullYear()),
         formattedHour = (date.getHours() < 9 ? '0' + date.getHours() : date.getHours()) + ':' + (date.getMinutes() < 9 ? '0' + date.getMinutes() : date.getMinutes()) + ':' + (date.getSeconds() < 9 ? '0' + date.getSeconds() : date.getSeconds());
 
-    arr.push({text: text, bg: bg, date: formattedDate + ' - ' + formattedHour});
+    arr.push({id: arr.length || 0, text: text, bg: bg, date: formattedDate + ' - ' + formattedHour});
     localStorage.setItem('savedTexts', JSON.stringify(arr));
 
     var dialogSaved = document.querySelector('#dialog-saved');

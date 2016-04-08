@@ -13,12 +13,35 @@
     <link rel="stylesheet" href="layout.css" />
     <script>
         var prefix = 'http://www.intrawallpaper.com';
+
+        function excluir (id) {
+            var items = localStorage.getItem('savedTexts'),
+                arr = null,
+                historico = document.querySelector('.historico');
+
+            if (!items) {
+                return;
+            }
+
+            arr = JSON.parse(items);
+
+            for (var i=0,n=arr.length;i<n;i++) {
+                if (id === arr[i].id) {
+                    arr.splice(i, 1);
+                }
+            }
+
+            localStorage.setItem('savedTexts', JSON.stringify(arr));
+            historico.innerHTML = null;
+            verHistorico();
+        }
+
         function verHistorico() {
             var items = localStorage.getItem('savedTexts'),
                 historico = document.querySelector('.historico'),
                 button = document.querySelector('#limpar');
 
-            if (!items) {
+            if (!items || items === '[]') {
                 historico.innerHTML = '<div style="text-align: center;margin-top: 60px;"><i class="material-icons" style="font-size: 60px;color: #f44336;">info</i><h4>Nenhum item no histórico!</h4></div>';
                 button.style.display = 'none';
                 return;
@@ -40,8 +63,8 @@
                                         '</div>'+
                                         '<div class="mdl-card__supporting-text">'+  arr[i].text + '</div>'+
                                        ' <div class="mdl-card__menu">'+
-                                       '     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">'+
-                                       '         <i class="material-icons">favorite</i>'+
+                                       '     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" onclick="excluir(' + arr[i].id +')">'+
+                                       '         <i class="material-icons">delete</i>'+
                                        '     </button>'+
                                       '  </div>'+
                                     '</div>';
