@@ -3,10 +3,10 @@ var fields = null,
     randoms = [];
 
 function generateRandom () {
-    var random = Math.floor(Math.random() * 5);
+    var random = Math.floor(Math.random() * 6);
 
     while (randoms.indexOf(random) > -1) {
-        random = Math.floor(Math.random() * 5);
+        random = Math.floor(Math.random() * 6);
     }
 
     return random;
@@ -38,6 +38,11 @@ function generate () {
     }
 
     var wishList = [];
+
+    if (fields.length < 6) {
+        fields = document.querySelectorAll('.mdl-textfield');
+    }
+
     for (var i=0,n=fields.length; i<n; i++) {
         wishList.push(fields[i].querySelector('input').value);
     }
