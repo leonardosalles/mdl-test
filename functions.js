@@ -96,6 +96,9 @@ function generate () {
         }
     }
 
+    var layout = document.querySelector('.mdl-layout__content');
+    layout.scrollTop = 0;
+
     var results = document.querySelector('.results');
 
     var tpls = [
@@ -116,7 +119,7 @@ function generate () {
                 '<div class="mdl-card__supporting-text">' + obj.text + '</div>'+
                 '<div class="mdl-card__actions mdl-card--border">'+
                '     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick="salvar(\'' + obj.text + '\', \'' + obj.bg + '\')">'+
-               '         Guardar'+
+               '         Salvar'+
                '     </a>'+
                ' </div>'+
                ' <div class="mdl-card__menu">'+

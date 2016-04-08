@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="layout.css" />
     <script defer src="functions.js"></script>
 </head>
-<body>
+<body onload="document.querySelector('#coisinha1').value = ''">
 <!-- Always shows a header, even in smaller screens. -->
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
@@ -45,7 +45,7 @@
             </button>
         </div>
 
-        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href="historico.html" style="position:absolute;right:10px;bottom:10px;">
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href="historico.html" style="position:fixed;right:20px;bottom:20px;z-index: 9999;">
             <i class="material-icons">assignment</i>
         </a>
     </div>
