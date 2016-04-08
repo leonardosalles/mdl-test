@@ -25,15 +25,12 @@
 
       <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="javascript:void(0)" onclick="generate()">Gerar <span id="cal">Primeiro</span></a>
-        <a class="mdl-navigation__link" href="javascript:void(0)" onclick="historico()">Ver histórico</a>
       </nav>
     </div>
   </header>
   <main class="mdl-layout__content">
     <div class="page-content">
-        <div class="results">
-
-        </div>
+        <div class="results"></div>
 
         <div class="field-wrapper top-space">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -47,6 +44,10 @@
                 Adicionar item
             </button>
         </div>
+
+        <a class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" href="historico.html" style="position:absolute;right:10px;bottom:10px;">
+            <i class="material-icons">assignment</i>
+        </a>
     </div>
   </main>
 </div>
@@ -79,6 +80,14 @@
 
     <div class="mdl-dialog__actions">
       <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="document.querySelector('#dialog-input').close();">Ok!</button>
+    </div>
+</dialog>
+
+<dialog class="mdl-dialog" id="dialog-saved">
+    <h4>Salvo com sucesso!</h4>
+
+    <div class="mdl-dialog__actions">
+      <button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="document.querySelector('#dialog-saved').close();">Ok!</button>
     </div>
 </dialog>
 </body>

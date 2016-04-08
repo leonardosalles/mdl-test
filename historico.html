@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador - Histórico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue-indigo.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.3/dialog-polyfill.min.css" />
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.3/dialog-polyfill.min.js"></script>
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+    <link rel="stylesheet" href="layout.css" />
+    <script>
+        var prefix = 'http://www.intrawallpaper.com';
+        function verHistorico() {
+            var items = localStorage.getItem('savedTexts'),
+                historico = document.querySelector('.historico');
+
+            if (!items) {
+                historico.innerHTML = '<div style="text-align: center;margin-top: 60px;"><i class="material-icons" style="font-size: 60px;color: #f44336;">info</i><h4>Nenhum item no histórico!</h4></div>';
+                return;
+            }
+
+            var arr = JSON.parse(items),
+                tpl = '';
+
+            for (var i=0,n=arr.length;i<n;i++) {
+                tpl += '<div class="demo-card-wide mdl-card mdl-shadow--2dp">'+
+                                     '<div class="mdl-card__title" style="background-image: url(' + prefix + arr[i].bg + ')">'+
+                                       '     <h2 class="mdl-card__title-text">' + arr[i].date + '</h2>'+
+                                        '</div>'+
+                                        '<div class="mdl-card__supporting-text">'+  arr[i].text + '</div>'+
+                                       ' <div class="mdl-card__menu">'+
+                                       '     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">'+
+                                       '         <i class="material-icons">favorite</i>'+
+                                       '     </button>'+
+                                      '  </div>'+
+                                    '</div>';
+            }
+
+            historico.insertAdjacentHTML('afterBegin', tpl);
+            historico.insertAdjacentHTML('afterBegin', '<h4 style="text-align: center;">Items no seu histórico</h4>');
+        }
+    </script>
+</head>
+<body onload="verHistorico()">
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Gerador - Histórico</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="javascript:void(0)" onclick="window.history.back()">Voltar</a>
+      </nav>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+        <div class="historico"></div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
